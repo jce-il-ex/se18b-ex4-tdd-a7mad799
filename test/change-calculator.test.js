@@ -1,9 +1,9 @@
 var coins = [5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
 
-var totalPayable = 210         // £2.10
-var cashPaid     = 300         // £3.00
-var difference    =  90         // 90p
-var change       = [50,20,20]  // 50p, 20p, 20p
+totalPayable = 1487                                 // £14.87  (fourteen pounds and eighty-seven pence)
+cashPaid     = 10000                                // £100.00 (one hundred pounds)
+difference    = 8513                                 // £85.13
+change       = [5000, 2000, 1000, 500, 10, 2, 1 ]   // £50, £20, £10, £5, 10p, 2p, 1p
 var test = require('tape'); // assign the tape library to the variable "test"
 var calculateChange = require('../lib/change-calculator.js');  // require the calculator module
 
@@ -24,6 +24,13 @@ test('calculateChange(486, 600) should equal [100, 10, 2, 2]', function(t) {
 test('calculateChange(12, 400) should return [200, 100, 50, 20, 10, 5, 2, 1]', function(t) {
   var result = calculateChange(12, 400);
   var expected = [200, 100, 50, 20, 10, 5, 2, 1];
+  t.deepEqual(result, expected);
+  t.end();
+});
+
+test('calculateChange(1487,10000) should equal [5000, 2000, 1000, 500, 10, 2, 1 ]', function(t) {
+  var result = calculateChange(1487,10000);
+  var expected = [5000, 2000, 1000, 500, 10, 2, 1 ];
   t.deepEqual(result, expected);
   t.end();
 });
